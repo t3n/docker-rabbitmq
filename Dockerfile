@@ -1,4 +1,4 @@
-FROM rabbitmq:3.7-management-alpine
+FROM rabbitmq:3.7-alpine
 
 RUN apk --update --no-cache add wget unzip && \
     wget https://dl.bintray.com/rabbitmq/community-plugins/3.7.x/rabbitmq_delayed_message_exchange/rabbitmq_delayed_message_exchange-20171201-3.7.x.zip && \
