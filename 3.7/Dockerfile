@@ -1,7 +1,6 @@
-FROM rabbitmq:3.7-alpine
+FROM rabbitmq:3.8.0-management-alpine
 
-RUN apk --update --no-cache add wget unzip && \
-    wget https://dl.bintray.com/rabbitmq/community-plugins/3.7.x/rabbitmq_delayed_message_exchange/rabbitmq_delayed_message_exchange-20171201-3.7.x.zip && \
-    unzip rabbitmq_delayed_message_exchange-20171201-3.7.x.zip && \
-    rm rabbitmq_delayed_message_exchange-20171201-3.7.x.zip && \
-    mv rabbitmq_delayed_message_exchange-20171201-3.7.x.ez plugins/
+RUN apk --update --no-cache add wget && \
+    wget https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v3.8.0/rabbitmq_delayed_message_exchange-3.8.0.ez && \
+    mv rabbitmq_delayed_message_exchange-3.8.0.ez plugins/ && \
+    rabbitmq-plugins enable --offline rabbitmq_delayed_message_exchange
